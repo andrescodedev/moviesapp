@@ -7,7 +7,6 @@ class MovieHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff5CA0D3),
       body: SafeArea(
         child: Column(
           children: [
