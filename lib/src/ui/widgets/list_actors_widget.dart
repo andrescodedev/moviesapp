@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:prueba_imaginamos/src/blocs/credit_bloc.dart';
 import 'package:prueba_imaginamos/src/models/credit_model.dart';
@@ -38,23 +39,24 @@ class _ListActorsWidgetState extends State<ListActorsWidget> {
 
           return SizedBox(
             height: 130.0,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 0.0),
-              child: PageView.builder(
-                itemCount: actors.length,
-                controller:
-                    PageController(initialPage: 1, viewportFraction: 0.3),
-                physics: BouncingScrollPhysics(),
-                itemBuilder: (context, index) {
-                  final actor = actors[index];
+            child: ListView.builder(
+              itemCount: actors.length,
+              scrollDirection: Axis.horizontal,
+              physics: BouncingScrollPhysics(),
+              itemBuilder: (context, index) {
+                final actor = actors[index];
 
-                  return Column(
+                return SizedBox(
+                  width: 100.0,
+                  child: Column(
                     children: [
-                      CircleAvatar(
-                        maxRadius: 40.0,
-                        minRadius: 30.0,
-                        backgroundImage: NetworkImage(
-                          '${actor.getPhotoActor()}',
+                      BounceInDown(
+                        child: CircleAvatar(
+                          maxRadius: 40.0,
+                          minRadius: 30.0,
+                          backgroundImage: NetworkImage(
+                            '${actor.getPhotoActor()}',
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -73,9 +75,9 @@ class _ListActorsWidgetState extends State<ListActorsWidget> {
                         ),
                       ),
                     ],
-                  );
-                },
-              ),
+                  ),
+                );
+              },
             ),
           );
         } else if (snapshot.hasError) {

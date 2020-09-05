@@ -20,8 +20,8 @@ class ThemeModeApp with ChangeNotifier {
           //dark
           this._darkTheme = true;
           this._currentTheme = ThemeData.dark().copyWith(
-              backgroundColor: Colors.greenAccent.withOpacity(0.5),
-              toggleableActiveColor: Colors.greenAccent.withOpacity(0.5));
+              backgroundColor: Colors.greenAccent.withOpacity(0.3),
+              toggleableActiveColor: Colors.greenAccent.withOpacity(0.3));
         }
         break;
       default:
@@ -41,8 +41,8 @@ class ThemeModeApp with ChangeNotifier {
     this._darkTheme = dark;
     if (dark) {
       this._currentTheme = ThemeData.dark().copyWith(
-          backgroundColor: Colors.greenAccent.withOpacity(0.5),
-          toggleableActiveColor: Colors.greenAccent.withOpacity(0.5));
+          backgroundColor: Colors.greenAccent.withOpacity(0.3),
+          toggleableActiveColor: Colors.greenAccent.withOpacity(0.3));
     } else {
       this._currentTheme = ThemeData.light().copyWith(
         scaffoldBackgroundColor: Color(0xff5CA0D3),

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:prueba_imaginamos/src/theme/theme_mode.dart';
 
 class TitleHomeWidget extends StatelessWidget {
   final String title;
@@ -10,17 +8,21 @@ class TitleHomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeModeApp = Provider.of<ThemeModeApp>(context);
-
     return Padding(
       padding:
           EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0, top: 10.0),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Switch.adaptive(
-            activeColor: Theme.of(context).toggleableActiveColor,
-            value: themeModeApp.getDarkTheme,
-            onChanged: (value) => themeModeApp.setDarkTheme = value,
+          GestureDetector(
+            onTap: () => Scaffold.of(context).openDrawer(),
+            child: Icon(
+              Icons.menu,
+              color: Colors.white,
+            ),
+          ),
+          SizedBox(
+            width: 10.0,
           ),
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 250.0),

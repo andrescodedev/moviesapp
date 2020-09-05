@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prueba_imaginamos/src/blocs/movie_bloc.dart';
 import 'package:prueba_imaginamos/src/models/movie_model.dart';
 import 'package:prueba_imaginamos/src/ui/screens/movie_detail_screen.dart';
+import 'package:animate_do/animate_do.dart';
 
 class MoviepopularListWidget extends StatefulWidget {
   @override
@@ -48,14 +49,16 @@ class _MoviepopularListWidgetState extends State<MoviepopularListWidget> {
                       constraints:
                           BoxConstraints(maxHeight: 120.0, maxWidth: 100.0),
                       child: GestureDetector(
-                        child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://image.tmdb.org/t/p/w185${movie.poster_path}'),
-                                fit: BoxFit.fill,
-                              )),
+                        child: BounceInUp(
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20.0),
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://image.tmdb.org/t/p/w185${movie.poster_path}'),
+                                  fit: BoxFit.fill,
+                                )),
+                          ),
                         ),
                         onTap: () {
                           Navigator.push(
