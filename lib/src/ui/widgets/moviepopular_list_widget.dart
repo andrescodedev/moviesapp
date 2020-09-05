@@ -3,19 +3,19 @@ import 'package:prueba_imaginamos/src/blocs/movie_bloc.dart';
 import 'package:prueba_imaginamos/src/models/movie_model.dart';
 import 'package:prueba_imaginamos/src/ui/screens/movie_detail_screen.dart';
 
-class MovieplayingListWidget extends StatefulWidget {
+class MoviepopularListWidget extends StatefulWidget {
   @override
-  _MovieplayingListWidgetState createState() => _MovieplayingListWidgetState();
+  _MoviepopularListWidgetState createState() => _MoviepopularListWidgetState();
 }
 
-class _MovieplayingListWidgetState extends State<MovieplayingListWidget> {
+class _MoviepopularListWidgetState extends State<MoviepopularListWidget> {
   MovieBloc movieBloc;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     movieBloc = MovieBloc();
-    movieBloc.getMoviePlaying();
+    movieBloc.getMoviePopular();
   }
 
   @override
@@ -27,7 +27,7 @@ class _MovieplayingListWidgetState extends State<MovieplayingListWidget> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: movieBloc.moviesPlaying,
+      stream: movieBloc.moviesPopular,
       builder: (context, AsyncSnapshot<MovieModel> snapshot) {
         if (snapshot.hasData) {
           List<Result> movies = snapshot.data.results;

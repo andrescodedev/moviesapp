@@ -19,7 +19,9 @@ class ThemeModeApp with ChangeNotifier {
         {
           //dark
           this._darkTheme = true;
-          this._currentTheme = ThemeData.dark();
+          this._currentTheme = ThemeData.dark().copyWith(
+              backgroundColor: Colors.greenAccent.withOpacity(0.5),
+              toggleableActiveColor: Colors.greenAccent.withOpacity(0.5));
         }
         break;
       default:
@@ -38,7 +40,9 @@ class ThemeModeApp with ChangeNotifier {
   set setDarkTheme(bool dark) {
     this._darkTheme = dark;
     if (dark) {
-      this._currentTheme = ThemeData.dark();
+      this._currentTheme = ThemeData.dark().copyWith(
+          backgroundColor: Colors.greenAccent.withOpacity(0.5),
+          toggleableActiveColor: Colors.greenAccent.withOpacity(0.5));
     } else {
       this._currentTheme = ThemeData.light().copyWith(
         scaffoldBackgroundColor: Color(0xff5CA0D3),

@@ -13,10 +13,13 @@ class ListActorsWidget extends StatefulWidget {
 }
 
 class _ListActorsWidgetState extends State<ListActorsWidget> {
+  CreditBloc creditBloc;
+
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    creditBloc = CreditBloc();
     creditBloc.getActors(widget.movie.id);
+    super.didChangeDependencies();
   }
 
   @override

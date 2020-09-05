@@ -8,14 +8,21 @@ class MovieHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
+        child: Stack(
           children: [
-            TitleHomeWidget(
-              title: 'Hello, what do you want to watch ?',
-              fontSize: 30.0,
+            Column(
+              children: [
+                TitleHomeWidget(
+                  title: 'Hello, what do you want to watch ?',
+                  fontSize: 30.0,
+                ),
+                SearchFieldWidget(),
+              ],
             ),
-            SearchFieldWidget(),
-            ContainerHomeWidget(),
+            Positioned(
+              child: ContainerHomeWidget(),
+              top: 20.0,
+            ),
           ],
         ),
       ),

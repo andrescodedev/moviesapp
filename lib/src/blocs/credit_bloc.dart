@@ -18,5 +18,3 @@ class CreditBloc {
     _actors.close();
   }
 }
-
-final creditBloc = CreditBloc();

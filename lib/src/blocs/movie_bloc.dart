@@ -21,9 +21,9 @@ class MovieBloc {
   }
 
   dispose() {
+    _moviesPlaying.drain();
+    _moviesPopular.drain();
     _moviesPlaying.close();
     _moviesPopular.close();
   }
 }
-
-final bloc = MovieBloc();

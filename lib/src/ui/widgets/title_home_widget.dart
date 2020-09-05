@@ -18,6 +18,7 @@ class TitleHomeWidget extends StatelessWidget {
       child: Row(
         children: [
           Switch.adaptive(
+            activeColor: Theme.of(context).toggleableActiveColor,
             value: themeModeApp.getDarkTheme,
             onChanged: (value) => themeModeApp.setDarkTheme = value,
           ),
