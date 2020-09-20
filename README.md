@@ -1,6 +1,6 @@
 # moviesapp
 
-A new Flutter project.
+moviesapp is an application that allow you to see movies and its details. This project was created with flutter, bloc, provider and an external api.
 
 ## Getting Started
 
